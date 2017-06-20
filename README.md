@@ -1,7 +1,7 @@
 # Mobile App with Phonegap
 
 ### Memory Store, Local Storage and Web Sql
-This is a fully functional employee directory application with PhoneGap - v1.0 
+This is a fully functional employee directory application with PhoneGap - v1.1
 
 #### Features
 - Different local data storage strategies.

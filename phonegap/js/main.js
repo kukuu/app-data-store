@@ -1,3 +1,7 @@
+//Author: Alexander Adu-Sarkodie
+// Purpose: SPA Mobile App Directory
+//Framework: Phonegap
+
 var app = {
 
     findByName: function() {

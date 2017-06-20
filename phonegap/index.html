@@ -2,11 +2,28 @@
 <html>
 	<head>
 		<title>Phonegap App - Using local data storage strategies</title>
+		<link href="css/styles.css" rel="stylesheet">
+		<script src="css/source-sans-pro.js"></script>
 	</head>
 	<body>	
+		<!-- Create an HTML template to render the Home View. Add this script tag as the first child of the body tag: -->
+		<script id="home-tpl" type="text/x-handlebars-template">
+		    <div class='header'><h1>Home</h1></div>
+		    <!-- <div class='search-bar'><input class='search-key' type="text"/></div> -->
+		    div class='search-bar'><input class='search-key' type="search"/></div>
+		    <ul class='employee-list'></ul>
+		</script>
+		<!-- 	Create an HTML template to render the employee list items. Add this script tag immediately after the previous one: -->
+		<script id="employee-li-tpl" type="text/x-handlebars-template">
+		    {{#.}}
+		    <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+		    {{/.}}
+		</script>
 		<script src="lib/jquery-1.8.2.min.js"></script>
 		<script src="js/storage/memory-store.js"></script>
+		<script src="js/HomeView.js"></script>
 		<script src="js/main.js"></script>
 		<script src="phonegap.js"></script>
+		<script src="lib/handlebars.js"></script>
 	</body>
 </html>

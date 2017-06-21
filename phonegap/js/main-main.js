@@ -22,16 +22,7 @@ var app = {
         });
     },
 
-    // initialize: function() {
-        
-    //     //Routing
-    //     this.detailsURL = /^#employees\/(\d{1,})/;
-
-    //     var self = this;
-    //     this.store = new MemoryStore(function() {
-    //         $('body').html(new HomeView(self.store).render().el);
-    //     });
-    // },
+  
 
     showAlert: function (message, title) {
         if (navigator.notification) {

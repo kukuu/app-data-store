@@ -58,6 +58,9 @@ var app = {
         $('.search-key').on('keyup', $.proxy(this.findByName, this));
     }
 
+    
+    
+
 };
 
 app.initialize();

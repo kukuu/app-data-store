@@ -34,13 +34,26 @@ var HomeView = function(store) {
 
 
 // Move the findByName() function from the app object to the HomeView class.
-	this.findByName = function() {
-	    store.findByName($('.search-key').val(), function(employees) {
-	        $('.employee-list').html(HomeView.liTemplate(employees));
-	    });
-	};
- 
-}
+
+//In HomeView.js, modify the findByName() function: Instantiate an 
+//iScroll object to scroll the list of employees 
+//returned. If the iScroll object already exists (), 
+//simply refresh it to adapt it to the new size of the list.
+
+
+this.findByName = function() {
+    store.findByName($('.search-key').val(), function(employees) {
+        $('.employee-list').html(HomeView.liTemplate(employees));
+        if (self.iscroll) {
+            console.log('Refresh iScroll');
+            self.iscroll.refresh();
+        } else {
+            console.log('New iScroll');
+            self.iscroll = new iScroll($('.scroll', self.el)[0], {hScrollbar: false, vScrollbar: false });
+        }
+    });
+};
+	
  
  //Add the two templates as static members of HomeView.
 

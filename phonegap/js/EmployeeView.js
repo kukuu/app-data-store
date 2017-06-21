@@ -14,6 +14,9 @@ var EmployeeView = function() {
 
 	        //we  register an event listener for the click event of the Add to Contacts list item:
 	        this.el.on('click', '.add-contact-btn', this.addToContacts);
+
+	        //we register an event listener for the click event of the Change Picture list item
+	        this.el.on('click', '.change-pic-btn', this.changePicture);
 	  };
 	 
 	   this.initialize();
@@ -59,6 +62,32 @@ var EmployeeView = function() {
 		    phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
 		    contact.phoneNumbers = phoneNumbers;
 		    contact.save();
+		    return false;
+		};
+
+		//We define the changePicture event handler as follows:
+
+		this.changePicture = function(event) {
+		    event.preventDefault();
+		    if (!navigator.camera) {
+		        app.showAlert("Camera API not supported", "Error");
+		        return;
+		    }
+		    var options =   {   quality: 50,
+		                        destinationType: Camera.DestinationType.DATA_URL,
+		                        sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+		                        encodingType: 0     // 0=JPG 1=PNG
+		                    };
+		 
+		    navigator.camera.getPicture(
+		        function(imageData) {
+		            $('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
+		        },
+		        function() {
+		            app.showAlert('Error taking picture', 'Error');
+		        },
+		        options);
+		 
 		    return false;
 		};
 

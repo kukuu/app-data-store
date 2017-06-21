@@ -1,3 +1,6 @@
+//Author: Alexander Adu-Sarkodie
+
+
 // It’s time to provide our application with some structure.
 //  If we keep adding all the core functions of the application to the app object, 
 //  it will very quickly grow out of control. In this section we create a HomeView 

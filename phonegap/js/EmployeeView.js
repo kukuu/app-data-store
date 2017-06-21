@@ -1,3 +1,6 @@
+
+//Author: Alexander Adu-Sarkodie
+
 var EmployeeView = function() {
 
 	//initialize the div element holding the data
@@ -8,7 +11,7 @@ var EmployeeView = function() {
 
 	        //register an event listener for the click event of the Add Location list item
 	        this.el.on('click', '.add-location-btn', this.addLocation);
-	        
+
 	        //we  register an event listener for the click event of the Add to Contacts list item:
 	        this.el.on('click', '.add-contact-btn', this.addToContacts);
 	  };
@@ -38,6 +41,27 @@ var EmployeeView = function() {
 		        });
 		    return false;
 		};
+
+
+		//we define the addToContacts event handler as follows:
+
+		this.addToContacts = function(event) {
+		    event.preventDefault();
+		    console.log('addToContacts');
+		    if (!navigator.contacts) {
+		        app.showAlert("Contacts API not supported", "Error");
+		        return;
+		    }
+		    var contact = navigator.contacts.create();
+		    contact.name = {givenName: employee.firstName, familyName: employee.lastName};
+		    var phoneNumbers = [];
+		    phoneNumbers[0] = new ContactField('work', employee.officePhone, false);
+		    phoneNumbers[1] = new ContactField('mobile', employee.cellPhone, true); // preferred number
+		    contact.phoneNumbers = phoneNumbers;
+		    contact.save();
+		    return false;
+		};
+
 }
  
 EmployeeView.template = Handlebars.compile($("#employee-tpl").html());

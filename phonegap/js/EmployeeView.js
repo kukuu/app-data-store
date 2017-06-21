@@ -5,8 +5,12 @@ var EmployeeView = function() {
 	        
 	        //Attach result to the div element
 	        this.el = $('<div/>');
+
 	        //register an event listener for the click event of the Add Location list item
 	        this.el.on('click', '.add-location-btn', this.addLocation);
+	        
+	        //we  register an event listener for the click event of the Add to Contacts list item:
+	        this.el.on('click', '.add-contact-btn', this.addToContacts);
 	  };
 	 
 	   this.initialize();

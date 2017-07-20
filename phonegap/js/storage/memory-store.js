@@ -1,3 +1,4 @@
+//Memory store on callback
 var MemoryStore = function(successCallback, errorCallback) {
 
     this.findByName = function(searchKey, callback) {

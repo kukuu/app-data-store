@@ -1,3 +1,5 @@
+//Localstorage for data store
+
 var LocalStorageStore = function(successCallback, errorCallback) {
 
     this.findByName = function(searchKey, callback) {
